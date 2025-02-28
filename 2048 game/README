@@ -1,0 +1,65 @@
+2048 game
+
+Setup terminal: full screen
+
+Dupa rularea programului, se va deschide meniul, reprezentat de functia "menu".
+Navigarea in meniu se face cu ajutorul tastelor directionale 
+(sagetile sus / jos), iar optiunea selectata in mod curent va fi marcata cu un
+highlight pe scris. Selectarea uneia dintre optiuni se face cu Enter.
+
+Optiunile din meniu sunt: 
+New Game - inceperea unui joc nou
+Resume - continuarea ultimului joc inceput
+Top Players - afisarea unei liste cu jucatorii (maxim 30) si scorurile lor, 
+ordonata descrescator in functie de scor
+Quit - inchiderea jocului
+
+New Game:
+Inaintea inceperii unui joc nou, se va deschide o fereastra pentru introducerea
+numelui noului jucator. Apasand tasta Enter se va salva numele jucatorului si 
+se va incepe jocul.
+Initial, va aparea pe mijlocul ecranului tabla de joc (cu cele doua elemente 
+random, aflate pe pozitii random), pe marginea din stanga se vor afisa mutarile
+valide (in partea de sus) si timpul si data (in partea de jos), iar pe marginea
+din dreapta se vor afisa socrul si highscore-ul. 
+
+-> functia "Game":
+Deplasarea celulelor se va face prin apasarea uneia dintre tastele w, a, s, d, 
+iar daca se va dori intoarcerea la meniu, se va apasa tasta q. Dupa fiecare 
+deplasare a celulelor se va actualiza scorul, respectiv highscore-ul, lista cu
+mutarile valide si tabla de joc. 
+Deplasarea celulelor se va face in una dintre functiile "left", "right", "up" 
+sau "down", in functie de alegerea facuta de jucator. Aceste functii determina 
+si daca se formeaza un camp ce contine valoarea "2048", adica daca juctorul a 
+castigat. 
+Tot dupa fiecare deplasare, se va verifica daca jucatorul a castigat sau daca
+a pierdut (functia "Game-over"), iar daca da, se va afisa o tabla speciala si
+se va astepta apasarea tastei Enter pentru intoarcerea la meniu. 
+Pe langa acestea, se verifica daca s-a facut o mutare valida, iar daca da, se
+va adauga pe tabla o valoare random pe o pozitie random.
+
+-> functia "Game_over":
+Aceasta functie are mai multe roluri: verificarea cazului in care jucatorul 
+pierde, determinarea si afisarea mutarilor valide, cat si determinarea celei 
+mai bune mutari. 
+Functia verifica fiecare mutare si o afiseaza in lista cu mutari valide, daca 
+aceasta este valida. In paralel, determina care mutare elibereaza mai multe 
+campuri si o retine. Acest lucru ne va ajuta in functia "Game", deoarece, daca
+vor trece 10 secunde in care jucatorul nu va face nici o mutare (valida sau 
+nu), programul va face cea mai buna mutare - aceea care elibereaza cele mai 
+multe campuri. Daca nu s-a gasit nici o mutare valida, inseamna ca jucatorul a
+pierdut, iar functia va returna valoarea 0. Altfel, functia returneaza 
+valoarea 1.
+
+Resume:
+-> daca nu s-au inceput jocuri inainte sa se selecteze Resume, va aparea pe 
+ecran o fereastra care va aduce la cunostinta jucatorului acest lucru si se va
+astepta apasarea tastei Enter pentru intoarcerea la meniu.
+->daca ultimul joc a fost pierdut, se va afisa tabla speciala
+->altfel, se va continua ultimul joc
+
+Top Players:
+Se va afisa o lista cu jucatorii (maxim 30) si scorurile lor, ordonata 
+descrescator in functie de scor. 
+-> Daca se depaseste numarul de jucatori, se va inlocui cel mai vechi jucator 
+cu cel nou. 
